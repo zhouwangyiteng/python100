@@ -2,6 +2,7 @@
 
 from selenium import webdriver
 import Image
+import os
 
 
 def getCode():
@@ -17,6 +18,7 @@ def getCode():
 
     im = Image.open("codingpy.png")
     im = im.crop((left, top, right, bottom))
+    os.remove("codingpy.png")
 
     browser.close()
     browser.quit()

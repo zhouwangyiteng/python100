@@ -49,14 +49,14 @@ def clearPic(picNum):
     filePost = '.png'
     img = Image.open(file_dir + stype + num + filePost)
     img = img.convert("L")
-    WHITE, BLACK = 255, 0
     sumN = img.size[0] * img.size[1]
     sumP = 0
     for x in xrange(img.size[0]):
         for y in xrange(img.size[1]):
             sumP += img.getpixel((x, y))
-    ttt = sumP / sumN
+    ttt = sumP / sumN  
     ttt -= 29
+    WHITE, BLACK = 255, 0
     img = img.point(lambda x: 1 if x > ttt else 0, '1')
     clearNoise(img, 3, 5)
     return img
@@ -118,5 +118,6 @@ def splitPic(num):
     #     splitIm = im.crop((0, splitF[0], im.size[0] - 1, splitF[-1]))
     #     splitIm.save('codeset/splitdata/' + str(num) + '_' + str(i) + '.png')
 
-for i in range(20):
-    splitPic(i)
+# for i in range(20):
+#     splitPic(i)
+clearPic(0)
